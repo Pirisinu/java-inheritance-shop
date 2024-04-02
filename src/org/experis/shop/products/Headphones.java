@@ -16,6 +16,7 @@ public class Headphones extends Prodotto {
         this.color = color;
         this.isWireless = isWireless;
     }
+
     // Methods Override
     @Override
     public BigDecimal getVatPrice(){
@@ -30,8 +31,8 @@ public class Headphones extends Prodotto {
                 + "Original price: " + this.getEuroFormatter().format(this.getPrice()) + " || "
                 + "Vat price: " + this.getEuroFormatter().format(getVatPrice()) + " || ";
     }
-    // Getters e Setters
 
+    // Getters e Setters
     public String getColor() {
         return color;
     }
@@ -40,9 +41,12 @@ public class Headphones extends Prodotto {
         this.color = color;
     }
 
-    public boolean isWireless() {
-        return isWireless;
+    public String isWireless() {
+        if (isWireless){
+            return "Wireless device.";
+        } else return "Wired device.";
     }
+
 
     public void setWireless(boolean wireless) {
         isWireless = wireless;
