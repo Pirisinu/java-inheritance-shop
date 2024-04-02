@@ -31,4 +31,12 @@ public class Smartphone extends Prodotto {
                 + "Original price: " + this.getEuroFormatter().format(this.getPrice()) + " || "
                 + "Vat price: " + this.getEuroFormatter().format(getVatPrice()) + " || ";
     }
+    // Getters e Setters
+    public int getMemoryGB() {
+        return memoryGB;
+    }
+
+    public void setMemoryGB(int memoryGB) {
+        this.memoryGB = memoryGB;
+    }
 }
