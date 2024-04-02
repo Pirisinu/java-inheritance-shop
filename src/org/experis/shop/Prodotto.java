@@ -2,6 +2,7 @@ package org.experis.shop;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class Prodotto {
@@ -9,6 +10,7 @@ public class Prodotto {
     private int code;
     private String name, brand;
     BigDecimal price , vat;
+    DecimalFormat euroFormatter = new DecimalFormat("0.00 €");
 
     // Constructor
     public Prodotto(String name, String brand, BigDecimal price, BigDecimal vat) {
@@ -29,8 +31,8 @@ public class Prodotto {
         String fullInfo = "Product n°" + this.code + " || "
                 + "Name: " + this.name + " || "
                 + "Brand: " + this.brand + " || "
-                + "Original price: " + this.price + " || "
-                + "Vat price: " + getVatPrice() + " || ";
+                + "Original price: " + euroFormatter.format(this.price) + " || "
+                + "Vat price: " + euroFormatter.format(getVatPrice()) + " || ";
 
         return fullInfo;
     }
