@@ -25,6 +25,16 @@ public class Prodotto {
         return price.add(price.divide(new BigDecimal(100)).multiply(vat)).setScale(2, RoundingMode.HALF_EVEN);
     }
 
+    public String getFullInfo(){
+        String fullInfo = "Product n°" + this.code + " || "
+                + "Name: " + this.name + " || "
+                + "Brand: " + this.brand + " || "
+                + "Original price: " + this.price + " || "
+                + "Vat price: " + getVatPrice() + " || ";
+
+        return fullInfo;
+    }
+
 
     // Getters and Setters
     public int getCode() {
