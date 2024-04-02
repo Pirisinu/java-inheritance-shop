@@ -39,6 +39,9 @@ public class Prodotto {
 
 
     // Getters and Setters
+
+    public DecimalFormat getEuroFormatter() { return euroFormatter; }
+
     public int getCode() {
         return code;
     }
