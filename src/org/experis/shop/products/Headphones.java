@@ -29,7 +29,10 @@ public class Headphones extends Prodotto {
                 + "Name: " + this.getName() + " || "
                 + "Brand: " + this.getBrand() + " || "
                 + "Original price: " + this.getEuroFormatter().format(this.getPrice()) + " || "
-                + "Vat price: " + this.getEuroFormatter().format(getVatPrice()) + " || ";
+                + "Vat price: " + this.getEuroFormatter().format(getVatPrice()) + " || "
+                + "Color: " + this.color + " || "
+                + "Is wireless: " + this.isWireless() + " || "
+                ;
     }
 
     // Getters e Setters
@@ -43,8 +46,8 @@ public class Headphones extends Prodotto {
 
     public String isWireless() {
         if (isWireless){
-            return "Wireless device.";
-        } else return "Wired device.";
+            return "Yes";
+        } else return "No";
     }
 
 

@@ -28,7 +28,10 @@ public class Televisions extends Prodotto {
                 + "Name: " + this.getName() + " || "
                 + "Brand: " + this.getBrand() + " || "
                 + "Original price: " + this.getEuroFormatter().format(this.getPrice()) + " || "
-                + "Vat price: " + this.getEuroFormatter().format(getVatPrice()) + " || ";
+                + "Vat price: " + this.getEuroFormatter().format(getVatPrice()) + " || "
+                + "Dimensions: " + this.dimensions + " || "
+                + "Is Smart: " + this.isSmart() + " || "
+                ;
     }
 
     // Getters e Setters

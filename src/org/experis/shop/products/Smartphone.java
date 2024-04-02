@@ -29,7 +29,10 @@ public class Smartphone extends Prodotto {
                 + "Name: " + this.getName() + " || "
                 + "Brand: " + this.getBrand() + " || "
                 + "Original price: " + this.getEuroFormatter().format(this.getPrice()) + " || "
-                + "Vat price: " + this.getEuroFormatter().format(getVatPrice()) + " || ";
+                + "Vat price: " + this.getEuroFormatter().format(getVatPrice()) + " || "
+                + "IMEI Code: " + this.IMEICode + " || "
+                + "Memory in GB: " + this.memoryGB + " || "
+                ;
     }
     // Getters e Setters
     public int getMemoryGB() {
