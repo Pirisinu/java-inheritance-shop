@@ -1,6 +1,7 @@
 package org.experis.shop;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Random;
 
 public class Prodotto {
@@ -18,6 +19,12 @@ public class Prodotto {
         this.price = price;
         this.vat = vat;
     }
+
+    // Methods
+    public BigDecimal getVatPrice(){
+        return price.add(price.divide(new BigDecimal(100)).multiply(vat)).setScale(2, RoundingMode.HALF_EVEN);
+    }
+
 
     // Getters and Setters
     public int getCode() {
