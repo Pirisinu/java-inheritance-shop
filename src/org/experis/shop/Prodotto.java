@@ -1,5 +1,9 @@
 package org.experis.shop;
 
+import org.experis.shop.products.Headphones;
+import org.experis.shop.products.Smartphone;
+import org.experis.shop.products.Televisions;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -23,6 +27,34 @@ public class Prodotto {
     }
 
     // Methods
+    public BigDecimal calculateDiscountedPrice(boolean hasMembership) {
+
+        BigDecimal discountPercentage = BigDecimal.valueOf(0.02);
+        // Verifico il tipo di prodotto e applico lo sconto
+        if (this instanceof Smartphone) {
+            Smartphone smartphone = (Smartphone) this;
+            if (smartphone.getMemoryGB() < 32) {
+                discountPercentage = BigDecimal.valueOf(0.05);
+            }
+        } else if (this instanceof Televisions) {
+            Televisions television = (Televisions) this;
+            if (!Boolean.parseBoolean(television.isSmart())) {
+                discountPercentage = BigDecimal.valueOf(0.10);
+            }
+        } else if (this instanceof Headphones) {
+            Headphones headphones = (Headphones) this;
+            if (Boolean.parseBoolean(headphones.isWireless())) {
+                discountPercentage = BigDecimal.valueOf(0.07);
+            }
+        }
+        // Se è membro applico lo sconto
+        if (hasMembership) {
+            BigDecimal discountAmount = price.multiply(discountPercentage);
+            return price.subtract(discountAmount);
+        }
+        // Altrimenti ritorno il prezzo originale
+        return price;
+    }
     public BigDecimal getVatPrice(){
         return price.add(price.divide(new BigDecimal(100)).multiply(vat)).setScale(2, RoundingMode.HALF_EVEN);
     }

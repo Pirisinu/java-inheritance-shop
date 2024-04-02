@@ -67,8 +67,14 @@ public class Carrello {
                         break;
                 }
             }
-            //Stampo il carrello
-            printCart(productList);
+
+            // Chiedo se possiede una tessera fedeltà
+            System.out.print("Possiedi una tessera fedeltà? (S/N): ");
+            String input = scan.nextLine();
+            boolean hasMembership = input.equalsIgnoreCase("S");
+
+            // Stampa il carrello
+            printCart(productList, hasMembership);
 
             System.out.println("Vuoi continuare a comprare? (Y/N)");
             exit = scan.nextLine().equalsIgnoreCase("N");
@@ -77,10 +83,11 @@ public class Carrello {
         System.out.println("Grazie e arrivederci");
     }
 
-    private static void printCart(Prodotto[] productList) {
+    private static void printCart(Prodotto[] productList, boolean hasMembership) {
         System.out.println("------ Carrello ------");
         for (Prodotto product : productList) {
-            System.out.println(product.getFullInfo());
+            BigDecimal discountedPrice = product.calculateDiscountedPrice(hasMembership);
+            System.out.println(product.getFullInfo() + " Prezzo scontato: " + discountedPrice);
         }
         System.out.println("----------------------");
     }
